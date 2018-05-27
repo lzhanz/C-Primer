@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main()
+{
+	int v1,v2=0;
+	//读取数据直到遇到文件尾,计算所有读入的值的和
+	while(std::cin>>v1)
+	{
+		v2+=v1;}
+	std::cout<<v2<<std::endl;
+	system("pause");
+}
