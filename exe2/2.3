@@ -1,0 +1,23 @@
+#include <iostream>
+#include "Sales_item.h"
+
+int main()
+{
+   unsigned u1=42,u2=10;
+   int i=-15,i2=42;
+   std::cout<<u2-u1<<std::endl;  //-32
+   std::cout<<i-i2<<std::endl;
+   std::cout<<i-u2<<std::endl;
+   std::cout<<u2+i<<std::endl;  //
+   system("pause");
+   return 0;
+}
+/*    
+
+ 实际上，在一个算数表达式中既有无符号数又有有符号数，那个有符
+ 号数（本例中是 int ）就会变成无符号数，-42 就会变成无符号数。把负
+ 数转成无符号数，结果等于这个负数加上无符号数的模。
+ 什么意思呢？在 VS2013编译器中（int 类型变量占4个字节），
+ 2的32次方 = 4294967296，那个-42 变成无符号数为 4294967254，再加上10，
+ 结果就是我们看到的 4294967264。如下图*/
+
