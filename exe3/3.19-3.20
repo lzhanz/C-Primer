@@ -1,0 +1,17 @@
+3.19:
+
+	vector<int> f={42.....};
+	            f=(10,42);
+		        f=s; //直接拷贝
+
+
+3.20:
+cout<<"整数容量为:"<<num.size()<<endl;
+
+
+	for(decltype(num.size()) x=0;x<num.size()/2;++x)
+	{
+		
+		auto a =num[x]+num[num.size()-(x+1)];
+		cout<<a<<endl;
+	}
