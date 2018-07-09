@@ -1,0 +1,162 @@
+头文件:
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Sales_Data
+{
+	string bookNumber;
+	unsigned solds;
+	double price;
+	double revenue;
+
+
+	void SumSoldPrice();
+	void AddData(Sales_Data data);
+};
+//
+void Sales_Data::SumSoldPrice()
+{
+	revenue =solds*price;
+}
+void Sales_Data::AddData(Sales_Data data)
+{
+	if(bookNumber!=data.bookNumber)return;
+
+	else if(bookNumber==data.bookNumber)
+	{
+		solds+=data.solds;
+		revenue+=data.revenue;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.41.1
+
+int main()
+{
+	/*int j;
+	std::string lx;
+	std::cout<<lx<<" "<<j<<std::endl;
+	system("pause");*/
+     
+	Sales_Data s1;
+
+	std::cout<<"请输入书籍编号以及销售记录和单价:"<<endl;
+	std::cin>>s1.bookNumber>>s1.solds>>s1.price;
+
+	s1.SumSoldPrice();
+
+	std::cout<<"书籍编号为:"<<s1.bookNumber<<",一共卖了"<<s1.solds<<"本,总价为:"<<s1.revenue<<endl;
+
+	system("pause");
+}
+
+
+
+
+
+
+
+
+
+2.41.2
+int main()
+{
+	/*int j;
+	std::string lx;
+	std::cout<<lx<<" "<<j<<std::endl;
+	system("pause");*/
+     
+	Sales_Data s1,s2;
+
+	std::cout<<"请输入书籍编号以及销售记录和单价:"<<endl;
+	std::cin>>s1.bookNumber>>s1.solds>>s1.price;
+
+	std::cin>>s2.bookNumber>>s2.solds>>s2.price;
+
+	s1.SumSoldPrice();
+	s2.SumSoldPrice();
+
+	
+	std::cout<<"书籍编号为:"<<s1.bookNumber<<",一共卖了"<<s1.solds<<"本,总价为:"<<s1.revenue<<endl;
+
+	if(s1.bookNumber==s2.bookNumber)
+	{
+		s1.AddData(s2);
+		std::cout<<"ISBN相同的相加后,销售记录为:"<<s1.solds<<",总价为:"<<s1.revenue<<endl;;
+	}
+	
+
+	system("pause");
+}
+
+
+
+
+2.41.3
+
+
+int main()
+{
+	/*int j;
+	std::string lx;
+	std::cout<<lx<<" "<<j<<std::endl;
+	system("pause");*/
+     
+	Sales_Data s1,s2;
+
+	/*std::cout<<"请输入书籍编号以及销售记录和单价:"<<endl;
+	std::cin>>s1.bookNumber>>s1.solds>>s1.price;
+
+	std::cin>>s2.bookNumber>>s2.solds>>s2.price;
+
+	s1.SumSoldPrice();
+	s2.SumSoldPrice();
+
+	
+	std::cout<<"书籍编号为:"<<s1.bookNumber<<",一共卖了"<<s1.solds<<"本,总价为:"<<s1.revenue<<endl;
+
+	if(s1.bookNumber==s2.bookNumber)
+	{
+		s1.AddData(s2);
+		std::cout<<"ISBN相同的相加后,销售记录为:"<<s1.solds<<",总价为:"<<s1.revenue<<endl;;
+	}*/
+
+	std::cout<<"请输入书籍编号以及销售记录和单价:"<<endl;
+
+	if(std::cin>>s1.bookNumber>>s1.solds>>s1.price)
+	{
+		s1.SumSoldPrice();
+	
+
+	while(std::cin>>s2.bookNumber>>s2.solds>>s2.price)
+	{
+		s2.SumSoldPrice();
+		if(s2.bookNumber==s1.bookNumber)
+		{
+			s1.AddData(s2);
+		}
+	}
+	std::cout<<"具有相同ISBN书籍的销售记录为:"<<s1.solds<<",总价为:"<<s1.revenue<<endl;
+}
+	else
+	{
+			std::cout<<"cerr data"<<endl;
+	return -1;
+	}
+	system("pause");
+}
