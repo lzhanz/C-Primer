@@ -1,0 +1,40 @@
+int main()
+{
+	using my_array = int[4];
+	typedef int  int_;
+	//版本一
+	int ia[3][4]={1,2,3,4,5,6,7,8,9,10,11,12};
+
+	for(int (&a)[4] :ia)
+	for (int(&b) : a)
+	{
+		cout << b << endl;
+	}
+
+	//版本二
+
+	for (size_t i = 0; i < 3;++i)
+	for (size_t j = 0; j < 4; ++j)
+	{
+		cout << ia[i][j] << endl;
+	}
+
+	//版本三
+	for (auto p = begin(ia); p != end(ia);++p)
+	for (auto q = begin(*p); q != end(*p); ++q)
+	{
+		cout << *q << endl;
+	}
+
+	//版本四
+	
+
+	for (my_array (&a) : ia)
+	for (int_(&b) : a)
+	{
+		cout << b << endl;
+	}
+
+	system("pause");
+	return 0;
+}
