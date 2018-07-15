@@ -1,0 +1,53 @@
+5.5:
+
+	int grade;
+	char score[6] = { 'F', 'E', 'D', 'C', 'B', 'A' };
+	char s1;
+
+	cin >> grade;
+	if (grade < 60) s1 = score[0];
+	else if (grade < 70) s1 = score[1];
+	else if (grade < 80) s1 = score[2];
+	else if (grade < 90) s1 = score[3];
+	else if (grade <= 99) s1 = score[4];
+	else if (grade == 100) s1 = score[5];
+
+	cout << s1 << endl;
+
+	system("pause");
+	return 0;
+  
+  
+  5.6:
+  
+  int grade;
+	char score[6] = { 'F', 'E', 'D', 'C', 'B', 'A' };
+	char s1;
+
+	cin >> grade;
+
+	grade < 60 ? s1 = score[0] : (grade < 70) ? s1 = score[1] : (grade < 80) ? s1 = score[2] : (grade < 90) ? s1 = score[3] : (grade <= 99) ? s1 = score[4] : s1 = score[5];
+
+	cout << s1 << endl;
+
+	system("pause");
+	return 0;
+  
+  
+  5.7:
+  
+ (a)if (ival1 != ival2)
+	ival1 = ival2;
+	else ival1 = ival2 = 0;
+(b) if (ival < minval)
+	{minval = ival; 
+	occurs = 1;}
+(c)if (int ival = get_value())
+	cout << "ival = " << ival << endl;
+	else
+	cout << "ival = 0\n";
+(d) if (ival == 0)
+	ival = get_value();
+  
+  
+  
