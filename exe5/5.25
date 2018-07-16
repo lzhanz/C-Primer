@@ -1,0 +1,29 @@
+	int i1, i2;
+	while (true)
+	{
+		cout << "请输入两个整数" << endl;
+		cin >> i1 >> i2;
+		try
+		{
+			if (i2 == 0)
+			{
+				throw runtime_error("被除数不能为0");
+			}
+			cout << i1 / i2 << endl;
+			break;
+		}
+		catch (runtime_error err)
+		{
+			cout << err.what() << endl;
+			cout << "是否重新输入？(y/n)" << endl;
+			char c;
+			cin >> c;
+			if (!cin || c == 'n')
+			{
+				break;
+			}
+		}
+	}
+
+	system("pause");
+	return 0;
