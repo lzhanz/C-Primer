@@ -1,0 +1,32 @@
+int main()
+{
+	string s1,str;
+	bool t=false;
+	while (cin >> s1)
+	{
+		if (!s1.size())
+		{
+			str = s1;
+		}
+		else
+		{
+			if (s1 == str)
+			{
+				t = true;
+				break;
+			}
+			else
+			{
+				str = s1;
+			}
+		}
+	}
+	
+	t == 1 ? cout << s1 << "重复出现" : cout << "没有重复出现的";
+
+	
+	system("pause");
+	return 0;
+
+	
+}
