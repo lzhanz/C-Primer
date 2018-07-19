@@ -1,0 +1,35 @@
+6.54:
+typedef int (*F)(int , int );
+
+using F1 = int(*)(int, int);
+
+vector<F> a;
+vector<F1> a1;
+
+6.55-56:
+int main(int argc,char **argv)
+{
+	using F1 = int(*)(const int& , const int&);
+	vector<F1> a;
+	F1 p1 = add;
+	F1 p2 = sub;
+	F1 p3 = mult;
+	F1 p4 = division;
+
+	a.push_back(p1);
+	a.push_back(p2);
+	a.push_back(p3);
+	a.push_back(p4);
+
+	for (auto i = 0; i != a.size(); ++i)
+	{
+		cout << "Result is:" << (a[i])(6,3) << endl;
+	}
+		
+	
+
+	system("pause");
+	return 0;
+
+
+}
