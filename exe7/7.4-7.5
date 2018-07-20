@@ -1,0 +1,42 @@
+h:
+
+#include <string>
+using namespace std;
+#pragma once
+class Person
+{
+public:
+	Person(string name, string address);
+	~Person();
+
+	string name;
+	string address;
+
+	string show_name() const{  return this->name;  }
+	string show_address() const {
+		return this->address;
+	}
+	
+};
+
+
+
+
+
+
+
+cpp:
+#include "Person.h"
+
+
+
+Person::Person(string name, string address)
+{
+this->name = name;
+this->address = address;
+}
+
+
+Person::~Person()
+{
+}
