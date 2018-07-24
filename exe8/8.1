@@ -1,0 +1,10 @@
+std::istream & fun(std::istream & is)
+{
+	std::string i;
+	while (is >> i)
+	{
+		std::cout << i << std::endl;
+	}
+	is.clear();//复位
+	return is;
+}
