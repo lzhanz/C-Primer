@@ -1,0 +1,23 @@
+string s1 = "1.txt";
+	vector<string> vs;
+	ifstream in(s1);
+
+	if (in)
+	{
+		string buf;
+		while (getline(in, buf))
+		{
+			vs.push_back(buf);
+		}
+	}
+	else
+	{
+		cerr << "error" << s1 << endl;
+	}
+
+	for (decltype(vs.size()) i = 0; i != vs.size(); ++i)
+	{
+		cout << vs[i] << endl;
+	}
+	system("pause");
+	return 0;
