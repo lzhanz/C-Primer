@@ -1,0 +1,34 @@
+8.9:
+istream & fun(istream &s)
+{
+	auto state = s.rdstate();
+	string s1;
+	while (s >> s1)
+	{
+		cout << s1 << " ";
+	}
+	s.setstate(state);
+	return s;
+}
+
+//int main(int argc,char **argv)
+int main()
+{
+	string line = "dsfg";
+	istringstream sin(line);
+	fun(sin);
+	system("pause");
+	return 0;
+}
+
+
+
+8.10:
+	string buf;
+		istringstream st(vs[i]);
+			while (st >> buf)
+			{
+				cout << buf << endl;
+			}
+      
+     
