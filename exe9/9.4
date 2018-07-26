@@ -1,0 +1,22 @@
+bool findInt(vector<int>::iterator a, vector<int>::iterator b, int c)
+{
+	while (a != b)
+	{
+		if (*a == c)
+		{
+			cout << "找到了" << endl;
+			return true;
+		}
+		else
+			++a;
+	}
+	cout << "没找到"<< endl;
+	return false;
+}
+int main()
+{
+	vector<int> vec{ 5,6,2,3,4,8,9,10,51,6 };
+	findInt(vec.begin(), vec.end(), 1);
+	system("pause");
+	return 0;
+}
