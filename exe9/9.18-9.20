@@ -1,0 +1,68 @@
+9.18:
+int main()
+{
+	string buf;
+	deque<string> de;
+	while (cin >> buf)
+	{
+		de.push_back(buf);
+	}
+
+	for (auto it = de.begin(); it != de.end(); ++it)
+	{
+		cout << *it << endl;
+	}
+	system("pause");
+	return 0;
+}
+
+
+
+
+9.20:
+int main()
+{
+	string buf;
+	list<string> l;
+	while (cin >> buf)
+	{
+		l.push_back(buf);
+	}
+
+	for (auto it = l.begin(); it != l.end(); ++it)
+	{
+		cout << *it << endl;
+	}
+	system("pause");
+	return 0;
+}
+
+
+9.21:
+  int main()
+{
+	list<int> li{ 1,5,2,6,2,4,3,1,8,9 };
+	vector<int> f{ 1,2,3,4 };
+	deque<int> de1, de2;
+	for (auto it = li.begin(); it != li.end(); ++it)
+	{
+		if (*it % 2 == 0)
+		{
+			de2.push_back(*it);
+		}
+		else
+			de1.push_back(*it);
+	}
+
+	cout << "奇数为:";
+	for (auto &i : de1)
+	{
+		cout<<i<<" ";
+	}
+	cout <<endl<< "偶数为:";
+	for (auto &i : de2)
+	{
+		cout << i << " ";
+	}
+	system("pause");
+}
