@@ -1,3 +1,4 @@
+9.27:
 int main()
 {
 	forward_list<int> li{ 1,5,2,6,2,4,2,1,9};
@@ -18,6 +19,48 @@ int main()
 	}
 
 	for (auto i : li)
+	{
+		cout << i << endl;
+	}
+
+	system("pause");
+}
+
+
+
+9.28:
+void fun1(forward_list<string> &mylist, string s1, string s2)
+{
+	bool flag = false;
+	auto it1 = mylist.begin();
+	auto prev = mylist.before_begin();
+	while (it1 != mylist.end())
+	{
+
+		int a = mylist.max_size();
+		if (*it1 == s1)
+		{
+			mylist.insert_after(it1, s2);
+			flag = true;
+		}
+		prev = it1++;
+	}
+	if (flag==false)
+	{
+	mylist.insert_after(prev, s2);
+	}
+		
+	
+}
+
+int main()
+{
+	forward_list<int> li{ 1,5,2,6,2,4,2,1,9};
+	forward_list<string> li2 (4, "fuck0");
+	string s = "fd";
+	string s2 = "fudsafck0";
+	fun1(li2, s,s2);
+	for (auto i : li2)
 	{
 		cout << i << endl;
 	}
