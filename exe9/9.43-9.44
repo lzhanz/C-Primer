@@ -25,3 +25,18 @@ int main()
 	cout << s << endl;
 	system("pause");
 }
+
+
+9.44:
+void stringfun(string &s, string &oldVal, string &newVal)
+{
+
+	for (auto it = s.begin();it<=(s.end()-oldVal.size()+1);++it)
+	{
+		if ((s.substr(it - s.begin(), oldVal.size()) == oldVal))
+		{
+			s.replace(it, it + oldVal.size() + 1, newVal);
+			
+		}
+	}
+}
