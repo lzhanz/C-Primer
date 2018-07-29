@@ -1,0 +1,27 @@
+9.43:
+void stringfun(string &s, string &oldVal, string &newVal)
+{
+
+	for (auto it = s.begin();it<=(s.end()-oldVal.size()+1);++it)
+	{
+		if ((s.substr(it - s.begin(), oldVal.size()) == oldVal))
+		{
+			it=s.erase(it, it+oldVal.size()); //返回的是指向删除的最后元素的后一个迭代器
+			it=s.insert(it, newVal.begin(), newVal.end()); //返回插入后的第一个元素
+			it += newVal.size()-1;   //让it指向
+			
+		}
+	}
+}
+
+
+int main()
+{
+	string s = "wozhendecaonimazhendelegeb";
+	string s1 = "zhende";
+	string s2 = "nima";
+	stringfun(s, s1, s2);
+
+	cout << s << endl;
+	system("pause");
+}
