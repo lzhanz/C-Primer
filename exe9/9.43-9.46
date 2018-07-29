@@ -40,3 +40,20 @@ void stringfun(string &s, string &oldVal, string &newVal)
 		}
 	}
 }
+
+9.45:
+void stringF(string &name, string &frontVal, string &backVal)
+{
+	name.append(backVal);
+	name.insert(name.begin(), frontVal.begin(), frontVal.end());
+}
+
+
+9.46:
+
+void stringF(string &name, string &frontVal, string &backVal)
+{
+	name.insert(0, frontVal);
+	name.insert(name.size(), backVal);
+}
+
