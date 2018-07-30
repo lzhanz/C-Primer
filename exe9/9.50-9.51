@@ -1,0 +1,148 @@
+9.50:
+int main()
+{
+	vector<string> vec(5, "10");
+	int sum1 = 0;
+	double sum2 = 0;
+	for (decltype(vec.size()) i = 0; i < vec.size(); ++i)
+	{
+		sum1 += stoi(vec[i]);
+		sum2 += stod(vec[i]);
+	}
+	cout << "整数和" << sum1 << endl;
+	cout << "double和" << sum2 << endl;
+	system("pause");
+}
+
+
+
+
+9.51:
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Data
+{
+public:
+	Data(string s);
+	void show();
+private:
+	unsigned  year;
+	unsigned  month;
+	unsigned  day;
+	bool    flag;
+};
+
+Data::Data(string s)
+{
+	int Datatype = 0;
+	string number = "0123456789/";
+	string uC = ",";
+	string uF = "/";
+	string m;
+	string Mot[] = { "january","febuary","march","april","may","june","july","august","september","october","november","december" };
+	string Mot1[] = { "jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec" };
+	string::size_type pos1 = 0;
+	string::size_type pos2 = 0;
+	string::size_type pos3 = 0;
+	if ((pos1 = s.find_first_not_of(number)) == string::npos)
+	{
+		Datatype = 1;      //全数字和/
+	}
+	else if ((pos1 = s.find_first_of(uC)) != string::npos)
+	{
+		Datatype = 2;
+	}
+	else
+	{
+		Datatype = 3;
+	}
+	switch (Datatype)
+	{
+	case 1:
+		if ((pos2 = s.find_first_of(uF,pos2)) != string::npos)
+		{
+			pos3 = pos2;
+			if ((pos3 = s.find_first_of(uF,pos2+1)) != string::npos)
+			{
+				day = stoul(s.substr(0, pos2));
+				month = stoul(s.substr(pos2+1, pos3-pos2));
+				year = stoul(s.substr(pos3+1, s.size() - pos3));
+			}
+			
+		}
+		flag = true;
+		break;
+	case 2:
+		pos2 = s.find_first_of(number);
+		pos3 = pos2 - 1;
+		m = s.substr(0, pos3);
+		for (auto &i : m)
+		{
+			i = tolower(i);
+		}
+		
+		for (decltype(Mot->size())i = 0; i < 12; ++i)
+		{
+			
+			if ((Mot[i]).compare(m)==0)
+			{
+				month = i+1;
+				break;
+			}
+			else if (i == 11)
+			{
+				flag = false;
+				cout << "月份输入有误" << endl;
+				return;
+			}
+		}
+		if ((pos3 = s.find_first_of(uC, pos2)) != string::npos)
+		{
+			day = stoul(s.substr(pos2, pos3-pos2));
+			year = stoul(s.substr(pos3+1,s.size()-pos3));
+		}
+		flag = true;
+		break;
+	case 3:
+		pos2 = s.find_first_of(number);
+		pos3 = pos2 - 1;
+		m = s.substr(0, pos3);
+		
+		for (auto &i : m)
+		{
+			i = tolower(i);
+		}
+		for (decltype(Mot1->size())i = 0; i < 12; ++i)
+		{
+			if (m.compare(Mot1[i]) == 0)
+			{
+				month = i + 1;
+				break;
+			}
+			else if (i == 11)
+			{
+				flag = false;
+				cout << "月份输入有误" << endl;
+				return;
+			}
+		}
+		if ((pos3 = s.find_first_of(number, pos2 + 1)) != string::npos)
+		{
+			day = stoul(s.substr(pos2, pos3 - pos2));
+			year = stoul(s.substr(pos3, s.size() - pos3));
+		}
+		flag = true;
+		break;
+	}
+}
+
+void Data::show()
+{
+	if (flag == true)
+	{
+		cout << "输入的是" << year << "年" << month << "月" << day << "日" << endl;
+	}
+}
+
