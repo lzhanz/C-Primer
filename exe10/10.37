@@ -1,0 +1,13 @@
+int main()
+{
+	vector<int> vc{1, 5, 66, 77, 13, 5, 7, 71, 43, 9};
+	list<int> lis;
+	copy(vc.rbegin() + 3, vc.rend() - 2,back_inserter(lis));
+	for (auto i : lis)
+	{
+		cout << i << endl;
+	}
+	system("pause");
+
+	
+}
