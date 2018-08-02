@@ -1,0 +1,64 @@
+10.29:
+int main()
+{
+	vector<string> vec;
+	ifstream in1("1.txt");
+	istream_iterator<string> str(in1);
+	istream_iterator<string> end;
+	copy(str, end, back_inserter(vec));
+
+	for (auto i : vec)
+	{
+		cout << i << endl;
+	}
+	system("pause");
+}
+
+10.30:
+	vector<int> vec;
+	istream_iterator<int> str(cin), end;
+	copy(str, end, back_inserter(vec));
+	sort(vec.begin(), vec.end());
+	for (auto i : vec)
+	{
+		cout << i << endl;
+	}
+	system("pause");
+  
+  
+ 10:33:
+ int main()
+{
+	ifstream in("1.txt");
+	istream_iterator<int> it(in), end;
+
+	vector<int> vec1;
+	while (it != end)
+	{
+		vec1.push_back(*it);
+		++it;
+	}
+	ofstream out("2.txt");
+	ofstream out2("3.txt");
+
+	ostream_iterator<int> it2(out, " ");
+	ostream_iterator<int> it3(out2, " ");
+
+	for (auto i : vec1)
+	{
+		if (i % 2 == 0)
+		{
+			it2++ = i;
+		}
+		else
+		{
+			it3++ = i;
+		}
+	}
+
+
+	system("pause");
+
+	
+}
+  
