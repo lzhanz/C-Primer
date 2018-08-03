@@ -1,0 +1,28 @@
+11.12:
+int main()
+{
+	string buf;
+	int num;
+	size_t j = 0;
+	vector<pair<string, int>>vec(12);
+	pair<string, int> pr;
+	ifstream in1("1.txt");
+	while (in1 >> buf)
+	{
+		vec[j].first = buf;
+		++j;
+	}
+	j = 0;
+	ifstream in2("2.txt");
+	while (in2 >> num)
+	{
+		vec[j].second = num;
+		++j;
+	}
+
+	for (auto i=vec.begin();i!=vec.end();++i)
+	{
+		cout << i->first << ":" << i->second << endl;
+	}
+	system("pause");
+}
