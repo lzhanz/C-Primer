@@ -1,0 +1,26 @@
+int main()
+{
+	map < string, size_t> m1;
+	set<string> ex{ "the","or","by","end","and","an" };
+	fstream in("1.txt");
+	string buf;
+	while (in>>buf)
+	{
+		for (auto &j : buf)
+		{
+			j = tolower(j);
+		}
+		if (ex.find(buf) == ex.end())
+		{
+			buf.erase((remove_if(buf.begin(), buf.end(), ispunct)), buf.end());
+			++m1[buf];
+		}
+	}
+	for (const auto &w : m1)
+	{
+		cout << w.first << "   occurs   " << w.second << ((w.second > 1) ? "times" : "time") << endl;
+	}
+	system("pause");
+
+	
+}
