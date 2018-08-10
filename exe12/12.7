@@ -1,0 +1,35 @@
+shared_ptr<vector<int>> func0()
+{
+	shared_ptr<vector<int>>p = make_shared<vector<int>>();
+	return p;
+	
+}
+shared_ptr<vector<int>> func1(ifstream &s)
+{
+	int num;
+	shared_ptr<vector<int>>q = func0();
+	while (s >> num)
+	{
+		q->push_back(num);
+	}
+	return q;
+}
+
+void func3(ifstream &s)
+{
+	shared_ptr<vector<int>> p1 = func1(s);
+	for (decltype(p1->size())i = 0; i != p1->size(); ++i)
+	{
+		cout << ((*p1)[i]) << " ";
+		cout << endl;
+	}
+}
+
+int main()
+{
+	ifstream in1("1.txt");
+	ifstream in2("ru.txt");
+	func3(in1);
+	system("pause");
+
+}
