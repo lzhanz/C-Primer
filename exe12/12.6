@@ -1,0 +1,38 @@
+vector<int>* func0()
+{
+	vector<int> *p = new vector<int>();
+	return p;
+	delete p;
+}
+vector<int>* func1(ifstream &s)
+{
+	int num;
+	vector<int>*q = func0();
+	while (s >> num)
+	{
+		(*q).push_back(num);
+	}
+	return q;
+	delete q;
+}
+
+void func3(ifstream &s)
+{
+	vector<int>* p1 = func1(s);
+	for (decltype(p1->size())i = 0; i != p1->size(); ++i)
+	{
+		cout << ((*p1)[i]) << " ";
+		cout << endl;
+	}
+
+	delete p1;
+}
+
+int main()
+{
+	ifstream in1("1.txt");
+	ifstream in2("ru.txt");
+	func3(in1);
+	system("pause");
+
+}
